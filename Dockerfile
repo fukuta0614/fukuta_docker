@@ -44,8 +44,8 @@ RUN echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCi2lVOlwPTxHiTkCiVQpdBDBlpoSxR9
 
 # dotfiles
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
-RUN git clone https://github.com/fukuta0614/dotfiles.git
-RUN cd dotfiles && zsh ./install.sh
+RUN git clone https://github.com/fukuta0614/dotfiles.git ~/.dotfiles
+RUN cd .dotfiles && zsh ./install.sh
 
 # env
 RUN echo 'export PATH=/usr/local/nvidia/bin:/usr/local/cuda/bin:$PATH' >> .zshrc
