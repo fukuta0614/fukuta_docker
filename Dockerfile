@@ -21,7 +21,7 @@ RUN sed -i 's/.*session.*required.*pam_loginuid.so.*/session optional pam_loginu
 RUN mkdir /var/run/sshd
 
 # create user fukuta_dev
-RUN useradd -m -u 1001 fukuta \
+RUN useradd -m -u 1002 fukuta \
     && echo "fukuta ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && echo 'fukuta:qwe123qwe' | chpasswd
 RUN chsh -s /usr/bin/zsh fukuta
@@ -62,8 +62,15 @@ RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 RUN ~/.pyenv/bin/pyenv install anaconda3-4.3.0
 RUN ~/.pyenv/bin/pyenv global anaconda3-4.3.0
 
-# chainer
+# pip
 RUN /home/fukuta/.pyenv/shims/pip install chainer
+RUN /home/fukuta/.pyenv/shims/pip install cupy
+RUN /home/fukuta/.pyenv/shims/pip install openslide-python
+RUN /home/fukuta/.pyenv/shims/pip install tensorflow
+RUN /home/fukuta/.pyenv/shims/pip install percol
+
+# conda
+RUN /home/fukuta/.pyenv/shims/conda install -c menpo opencv3
 
 # volumes
 RUN mkdir /home/fukuta/work_space/
