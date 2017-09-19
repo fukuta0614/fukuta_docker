@@ -6,7 +6,7 @@ RUN \
  apt-get install -y build-essential && \
  apt-get install -y software-properties-common
 
-RUN apt-get install -y sudo tree openssh-server tmux curl git htop man unzip vim wget zsh libssl-dev openssl zlib1g-dev sqlite3
+RUN apt-get install -y sudo tree openssh-server tmux curl git htop man unzip vim wget zsh libssl-dev openssl zlib1g-dev sqlite3 libgtk2.0-0
 
 # openslide
 RUN apt-get install -y libopenslide0
