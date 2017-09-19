@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn7-devel
+FROM nvidia/cuda:8.0-cudnn6-devel
 
 RUN \
  apt-get update -y && \
@@ -61,6 +61,11 @@ RUN echo 'export LIBRARY_PATH="$NCCL_ROOT/lib/:$LIBRARY_PATH"' >> .zshrc
 RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 RUN ~/.pyenv/bin/pyenv install anaconda3-4.3.0
 RUN ~/.pyenv/bin/pyenv global anaconda3-4.3.0
+
+ENV NCCL_ROOT /usr/local/nccl
+ENV CPATH $NCCL_ROOT/include:$CPATH
+ENV LD_LIBRARY_PATH $NCCL_ROOT/lib/:$LD_LIBRARY_PATH
+ENV LIBRARY_PATH $NCCL_ROOT/lib/:$LIBRARY_PATH
 
 # pip
 RUN /home/fukuta/.pyenv/shims/pip install chainer
