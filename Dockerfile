@@ -73,6 +73,7 @@ RUN /home/fukuta/.pyenv/shims/pip install cupy
 RUN /home/fukuta/.pyenv/shims/pip install openslide-python
 RUN /home/fukuta/.pyenv/shims/pip install tensorflow
 RUN /home/fukuta/.pyenv/shims/pip install percol
+RUN /home/fukuta/.pyenv/shims/pip install tqdm
 
 # conda
 RUN /home/fukuta/.pyenv/shims/conda install -c menpo opencv3
