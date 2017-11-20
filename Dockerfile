@@ -21,7 +21,7 @@ RUN sed -i 's/.*session.*required.*pam_loginuid.so.*/session optional pam_loginu
 RUN mkdir /var/run/sshd
 
 # create user fukuta_dev
-RUN useradd -m -u 1002 fukuta \
+RUN useradd -m -u 1001 fukuta \
     && echo "fukuta ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && echo 'fukuta:qwe123qwe' | chpasswd
 RUN chsh -s /usr/bin/zsh fukuta
